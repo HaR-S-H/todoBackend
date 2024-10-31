@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
             return res.status(400).json({ message: "please provide all required fields" });
         }
         
-        const validateUser = userSchema.safeParse({ email, username, password, password });
+        const validateUser = userSchema.safeParse({ email, username, password });
         if (!validateUser.success) {
             // return res.status(400).json({ errors: validateUser.error.errors });
             const validateUserError = validateUser.error.errors.map(err => err.message);
